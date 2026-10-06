@@ -10,3 +10,7 @@ inside_counter(78540053328)/total_points(100000000000) = 3.141602
 Seconds the program took to run was: 3031   
 Minutes: 50.51 Minutes
 
+## 5 Threads — Parallelization - M1 Pro
+inside_counter(78376904275)/total_points(100000000000) = 3.135076   
+Seconds the program took to run was: 478   
+Minutes: 7.96 Minutes
