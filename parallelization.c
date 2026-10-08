@@ -3,7 +3,12 @@
 #include <time.h>
 #include <omp.h>
 
-int main(){
+int main(int argc, char *argv[]){
+	if (argc != 2) {
+		printf("ERROR: Usage ./parallelization <# of threads>\n");
+		return -1;
+	}
+	int num_threads_user = atoi(argv[1]);
 	struct timespec start_time;
 	clock_gettime(CLOCK_REALTIME, &start_time);
 
@@ -11,7 +16,7 @@ int main(){
 	long long total_points = 100000000000;
 	//long long total_points = 100000000;
 
-	#pragma omp parallel reduction(+ : inside_counter) num_threads(8)
+	#pragma omp parallel reduction(+ : inside_counter) num_threads(num_threads_user)
 	{
 		
 		unsigned int seed = (unsigned int)(time(NULL) + omp_get_thread_num());
